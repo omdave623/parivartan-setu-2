@@ -81,10 +81,16 @@ function App() {
   });
 
   const [loggedIn, setLoggedIn] = useState(() => {
-    return localStorage.getItem("kabadiwala_loggedIn") === "true";
+    return false;
   });
 
   const [page, setPage] = useState("dashboard");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [page, loggedIn]);
 
   const defaultRequests = [
     {
